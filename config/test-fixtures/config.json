@@ -1,0 +1,26 @@
+{
+  "consul": {
+    "address": "10.53.164.41:30251",
+    "ssl": true,
+    "ssl_verify": false,
+    "token": "XXXXXXXXXXXXX"
+  },
+  "repos": [
+    {
+      "skip_repo_name":false,
+      "skip_branch_name":true,
+      "expand_keys":true,
+      "branches":["main"],
+      "hooks":[
+        {"type":"polling","interval":60}
+      ],
+      "name": "config",
+      "url": "https://github.com/system-configurations.git",
+      "credentials": {
+        "username": "XXXXXXXXXXXXX",
+        "password": "XXXXXXXXXXXXX",
+        "private_key":{"pk_key":""}
+      }    
+    }
+  ]
+}

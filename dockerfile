@@ -11,3 +11,6 @@ FROM alpine:3.13.5
 WORKDIR /app/
 COPY --from=build /app/git2consul .
 CMD ["/app/git2consul","-config","/config/config.json","-debug"]
+
+# docker build . -t g2c
+# docker run -it -v /git2consul-go/config/test-fixtures:/config  g2c
