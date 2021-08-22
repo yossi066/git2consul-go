@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git2consul
+spec:
+  selector:
+    matchLabels:
+      app: git2consul
+  template:
+    metadata:
+      labels:
+        app: git2consul
+    spec:
+      imagePullSecrets:
+        - name: XXXXXXXXX
+      containers:
+      - name: git2consul
+        imagePullPolicy: Always
+        image: devops/g2cgo:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: g2config
+          mountPath: "/config"
+          readOnly: true
+      volumes:
+        - name: g2config
+          secret:
+            secretName: g2config
+  
